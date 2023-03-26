@@ -1,16 +1,13 @@
 void setup()
- {
-  Serial.begin(57600);
+{
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
 
-  for (int pin = 2; pin < 10; pin++)
-    pinMode(pin, INPUT);
-
+  shiftOut(10, 11, MSBFIRST, 0xff);   
+ 	digitalWrite(12, HIGH);
   delay(1000);
-
-  for (int pin = 9; pin > 1; pin--)
-    Serial.print(digitalRead(pin));
-
-  Serial.println();
+	digitalWrite(12, LOW);		
 }
 
 void loop()
